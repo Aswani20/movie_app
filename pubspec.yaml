@@ -39,6 +39,8 @@ dependencies:
   flutter_native_splash: ^2.3.4
   provider: ^6.0.5
   shared_preferences: ^2.2.2
+  carousel_slider: ^4.2.1
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:
