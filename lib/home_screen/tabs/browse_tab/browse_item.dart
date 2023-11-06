@@ -44,3 +44,7 @@ class BrowseItem extends StatelessWidget {
     );
   }
 }
+class GenersObjectArgs {
+  var genresId;
+  GenersObjectArgs({required this.genresId});
+}

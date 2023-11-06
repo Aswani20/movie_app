@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/api/api_manager.dart';
 import 'package:movieapp/home_screen/tabs/browse_tab/browse_details_item.dart';
+import 'package:movieapp/home_screen/tabs/browse_tab/browse_item.dart';
 import 'package:movieapp/my_theme.dart';
 
 class BrowseDetails extends StatefulWidget {
   static const String routeName = 'details';
-  const BrowseDetails({super.key});
+  BrowseDetails({super.key});
 
   @override
   State<BrowseDetails> createState() => _BrowseDetailsState();
@@ -14,6 +15,7 @@ class BrowseDetails extends StatefulWidget {
 class _BrowseDetailsState extends State<BrowseDetails> {
   @override
   Widget build(BuildContext context) {
+    GenersObjectArgs args= ModalRoute.of(context)!.settings.arguments as GenersObjectArgs;
     return Scaffold(
       appBar: AppBar(),
       body: Column(

@@ -27,6 +27,7 @@ class ApiManager{
     Uri url = Uri.https(ApiConstants.serverName, ApiConstants.categoryDetailsApi,
         {
           'api_key': '8751339cf9363a9c9ae208d4d2ac0a7e',
+
         }
     );
 

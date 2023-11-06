@@ -95,7 +95,7 @@ class _BrowseFragmentState extends State<BrowseFragment> {
                     final browseData = browseList.firstWhere((browseData) => browseData.id == id,orElse: () => BrowseData(id:0 , title: categoryList[index].name ?? '', imageUrl: 'assets/images/action.jpg'),);
                     return InkWell(
                       onTap: () {
-                          Navigator.of(context).pushNamed(BrowseDetails.routeName);
+                          Navigator.of(context).pushNamed(BrowseDetails.routeName, arguments: GenersObjectArgs(genresId: categoryList[index].id));
                       },
                       child:
                       BrowseItem(browseData:browseData,genres: categoryList[index]),
