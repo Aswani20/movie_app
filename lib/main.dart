@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/home_screen/home_screen.dart';
+import 'package:movieapp/home_screen/tabs/browse_tab/browse_details.dart';
 import 'package:movieapp/my_theme.dart';
 
 void main(){
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget{
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName : (context)=> HomeScreen(),
+        BrowseDetails.routeName : (context) => BrowseDetails(),
       },
     );
   }

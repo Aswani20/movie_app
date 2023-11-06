@@ -15,6 +15,11 @@ class MyTheme{
    /// Light Mode
    static ThemeData lightMode =ThemeData(
 
+     scaffoldBackgroundColor: primaryColor,
+     appBarTheme: AppBarTheme(
+       color: primaryColor,
+       elevation: 0,
+     ),
      /// Text Theme
       textTheme: TextTheme(
          titleLarge: TextStyle(
