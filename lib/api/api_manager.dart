@@ -23,11 +23,11 @@ class ApiManager{
     }
   }
 
-  static Future<CategoryDetailsResponse> getCategoryDetails() async {
+  static Future<CategoryDetailsResponse> getCategoryDetails(String catId) async {
     Uri url = Uri.https(ApiConstants.serverName, ApiConstants.categoryDetailsApi,
         {
           'api_key': '8751339cf9363a9c9ae208d4d2ac0a7e',
-
+          'with_genres': catId,
         }
     );
 

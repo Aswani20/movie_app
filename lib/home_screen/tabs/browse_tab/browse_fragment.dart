@@ -6,7 +6,7 @@ import 'package:movieapp/model/browse_data.dart';
 import 'package:movieapp/my_theme.dart';
 
 class BrowseFragment extends StatefulWidget {
-  BrowseFragment({super.key});
+  const BrowseFragment({super.key});
 
   @override
   State<BrowseFragment> createState() => _BrowseFragmentState();

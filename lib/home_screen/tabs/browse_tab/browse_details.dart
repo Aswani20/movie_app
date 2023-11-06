@@ -21,7 +21,7 @@ class _BrowseDetailsState extends State<BrowseDetails> {
       body: Column(
         children: [
           FutureBuilder(
-              future: ApiManager.getCategoryDetails(),
+              future: ApiManager.getCategoryDetails(args.genresId.toString()),
               builder: (context, snapshot){
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Expanded(
@@ -41,7 +41,7 @@ class _BrowseDetailsState extends State<BrowseDetails> {
                           Text("Something Went Wrong", style: Theme.of(context).textTheme.titleMedium,),
                           ElevatedButton(
                             onPressed: () {
-                              ApiManager.getCategoryDetails();
+                              ApiManager.getCategoryDetails(args.genresId.toString());
                               setState(() {});
                             },
                             child: Text("Try Again"),
@@ -60,7 +60,7 @@ class _BrowseDetailsState extends State<BrowseDetails> {
                           Text(snapshot.data!.status_message ?? ""),
                           ElevatedButton(
                               onPressed: () {
-                                ApiManager.getCategoryDetails();
+                                ApiManager.getCategoryDetails(args.genresId.toString());
                                 setState(() {});
                               },
                               child: Text("Try Again")),
