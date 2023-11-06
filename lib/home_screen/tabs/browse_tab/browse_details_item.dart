@@ -7,19 +7,27 @@ class BrowseDetailsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset('assets/images/action.jpg',width: double.infinity,height: double.infinity, fit: BoxFit.cover,),
-        Column(
-          children: [
-            Text(results.title ?? ''),
-            Text(results.releaseDate ?? ''),
-            Text('${results.popularity}'),
-            Text('${results.voteAverage}'),
-            Text('${results.voteCount}')
-          ],
-        ),
-      ],
+    return Container(
+      margin:const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        children: [
+          Image.asset('assets/images/action.jpg', height: MediaQuery.of(context).size.height*0.12,width: MediaQuery.of(context).size.width*0.5,),
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(results.title ?? '',style: Theme.of(context).textTheme.titleMedium,),
+                const SizedBox(height: 8,),
+                Text(results.releaseDate ?? '',style: Theme.of(context).textTheme.titleSmall,),
+                const SizedBox(height: 8,),
+                Text('${results.voteAverage}',style: Theme.of(context).textTheme.titleSmall,),
+                const SizedBox(height: 8,),
+                Text('${results.voteCount}',style: Theme.of(context).textTheme.titleSmall,),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

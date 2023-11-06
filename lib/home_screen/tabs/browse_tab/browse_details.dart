@@ -6,7 +6,7 @@ import 'package:movieapp/my_theme.dart';
 
 class BrowseDetails extends StatefulWidget {
   static const String routeName = 'details';
-  BrowseDetails({super.key});
+  const BrowseDetails({super.key});
 
   @override
   State<BrowseDetails> createState() => _BrowseDetailsState();
@@ -51,7 +51,7 @@ class _BrowseDetailsState extends State<BrowseDetails> {
                     ),
                   );
                 }
-                if (snapshot.data!.status_code == 7) {
+                if (snapshot.data!.success == false) {
                   return Expanded(
                     child: Center(
                       child: Column(
@@ -72,10 +72,18 @@ class _BrowseDetailsState extends State<BrowseDetails> {
 
                 var categoryDetailsList = snapshot.data!.results ?? [];
                 return Expanded(
-                  child: ListView.builder(
+                  child: ListView.separated(
+                    separatorBuilder: (context,index){
+                      return Container(
+                        margin:const EdgeInsets.symmetric(horizontal: 20,vertical: 8),
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1,color: MyTheme.grayColor)
+                        ),
+                      );
+                    },
                     itemCount: categoryDetailsList.length,
                       itemBuilder: (context,index){
-                          BrowseDetailsItem(results: categoryDetailsList[index],);
+                         return BrowseDetailsItem(results: categoryDetailsList[index],);
                       }
                   ),
                 );

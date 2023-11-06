@@ -37,7 +37,7 @@ class ApiManager{
       var json = jsonDecode(bodyString);
       return CategoryDetailsResponse.fromJson(json);
     } catch (e) {
-      throw e;
+        throw e;
     }
   }
 }
