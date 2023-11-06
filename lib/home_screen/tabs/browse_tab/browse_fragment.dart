@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/api/api_manager.dart';
+import 'package:movieapp/home_screen/tabs/browse_tab/browse_details.dart';
 import 'package:movieapp/home_screen/tabs/browse_tab/browse_item.dart';
 import 'package:movieapp/model/browse_data.dart';
 import 'package:movieapp/my_theme.dart';
@@ -13,6 +14,7 @@ class BrowseFragment extends StatefulWidget {
 
 class _BrowseFragmentState extends State<BrowseFragment> {
   var browseList = BrowseData.getBrowse();
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,35 +44,39 @@ class _BrowseFragmentState extends State<BrowseFragment> {
                 );
               }
               else if (snapshot.hasError) {
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                       Text("Something Went Wrong", style: Theme.of(context).textTheme.titleMedium,),
-                      ElevatedButton(
-                        onPressed: () {
-                          ApiManager.getCategory();
-                          setState(() {});
-                        },
-                        child: Text("Try Again"),
-                      )
-                    ],
-                  ),
-                );
-              }
-              if (snapshot.data!.status_code == 7) {
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(snapshot.data!.status_message ?? ""),
-                      ElevatedButton(
+                return Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                         Text("Something Went Wrong", style: Theme.of(context).textTheme.titleMedium,),
+                        ElevatedButton(
                           onPressed: () {
                             ApiManager.getCategory();
                             setState(() {});
                           },
-                          child: Text("Try Again")),
-                    ],
+                          child: Text("Try Again"),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              }
+              if (snapshot.data!.status_code == 7) {
+                return Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(snapshot.data!.status_message ?? ""),
+                        ElevatedButton(
+                            onPressed: () {
+                              ApiManager.getCategory();
+                              setState(() {});
+                            },
+                            child: Text("Try Again")),
+                      ],
+                    ),
                   ),
                 );
               }
@@ -89,7 +95,7 @@ class _BrowseFragmentState extends State<BrowseFragment> {
                     final browseData = browseList.firstWhere((browseData) => browseData.id == id,orElse: () => BrowseData(id:0 , title: categoryList[index].name ?? '', imageUrl: 'assets/images/action.jpg'),);
                     return InkWell(
                       onTap: () {
-
+                          Navigator.of(context).pushNamed(BrowseDetails.routeName);
                       },
                       child:
                       BrowseItem(browseData:browseData,genres: categoryList[index]),
