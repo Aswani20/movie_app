@@ -28,4 +28,5 @@ class MyApp extends StatelessWidget{
 /// 1-provider
 /// 2-splash screen
 /// 3-shared preferences
-/// 3-http
+/// 4-http
+/// 5-cached_network_image
